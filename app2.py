@@ -3,13 +3,13 @@ import google.generativeai as genai
 import ollama
 import io
 from PIL import Image
-from ocr_utils import extract_text_from_image   # <-- OCR module
+from ocr_utils import extract_text_from_image   # OCR module
 
 # ---------------- CONFIG ----------------
 st.set_page_config(page_title="Gemini + Ollama Chat", page_icon="🤖", layout="centered")
 
-# Configure Gemini
-genai.configure(api_key="AIzaSyBN_bOwZpV4qterCrRWiZMclqai6CkZKhQ")   # 🔑 replace with your key
+# Configure Gemini with hidden API key
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 GEMINI_MODEL = "gemini-1.5-flash"
 OLLAMA_MODEL = "llama3.1:8b"
 
